@@ -3,7 +3,7 @@ import * as dotEnv from 'dotenv'
 import bodyParser from 'body-parser'
 
 import AuthModule from './module/auth/authModule.js';
-import { ErrorHandler } from './handler/errorHandler.js';
+import { errorFilter } from './filter/errorFilter.js';
 
 dotEnv.config();
 
@@ -15,7 +15,7 @@ const port = process.env.PORT || 3000;
 
 new AuthModule(app).initModule()
 
-app.use(ErrorHandler)
+app.use(errorFilter)
 
 app.listen(port, "0.0.0.0", (error) => {
 	if (error) {

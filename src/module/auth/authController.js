@@ -26,7 +26,7 @@ export default class AuthController {
             const login = await authService.login(req.body)
 
             if (login[0] == 422) {
-                return responseError(res, 'Invalid form', null, register[1], register[0])
+                return responseError(res, 'Invalid form', null, login[1], login[0])
             }
 
             if (login[0] == 400) {
