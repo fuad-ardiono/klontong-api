@@ -36,6 +36,7 @@ CREATE TABLE product_meta (
 CREATE TABLE product (
     product_id BIGSERIAL PRIMARY KEY,
     price BIGINT NOT NULL CHECK (price > 0),
+    name VARCHAR (255) NOT NULL,
     description TEXT NULL,
     category_id BIGSERIAL,
     product_meta_id BIGSERIAL,
