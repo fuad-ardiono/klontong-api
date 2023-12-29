@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node src/app.js",
-    "seed": "node src/db/appSeed.js",
+    "seed": "node src/config/db/appSeed.js",
     "start:dev": "npm run seed && nodemon -L src/app.js"
   },
   "author": "Muhammad Fuad Ardiono",
