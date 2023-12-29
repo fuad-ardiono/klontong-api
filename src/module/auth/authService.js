@@ -5,7 +5,6 @@ import Joi from 'joi'
 import bcrypt from 'bcrypt'
 import * as jose from 'jose'
 import * as dotEnv from 'dotenv'
-import { responseError } from "../../utils/responseUtils.js";
 dotEnv.config()
 
 export default class AuthService {
@@ -48,12 +47,12 @@ export default class AuthService {
             }
             const secret = new TextEncoder().encode(
                 process.env.AUTH_JWT_SECRET,
-              )
+            )
             const token = await new jose.SignJWT(payloadJwt)
                 .setProtectedHeader({ alg: 'HS256' })
                 .setIssuedAt()
                 .setIssuer('klontong_api')
-                .setAudience(`auth_user:${payloadJwt.email}`)
+                .setAudience(`auth_user`)
                 .setExpirationTime('8h')
                 .sign(secret)
 

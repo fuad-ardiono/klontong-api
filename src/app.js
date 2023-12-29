@@ -2,14 +2,17 @@ import express from 'express'
 import * as dotEnv from 'dotenv'
 import bodyParser from 'body-parser'
 
+import errorFilter from './filter/errorFilter.js';
+import corsHeaderFilter from './filter/corsHeaderFilter.js';
+
 import AuthModule from './module/auth/authModule.js';
-import { errorFilter } from './filter/errorFilter.js';
 
 dotEnv.config();
 
 const app = express();
-app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(corsHeaderFilter);
 
 const port = process.env.PORT || 3000;
 

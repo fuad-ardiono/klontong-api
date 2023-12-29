@@ -1,3 +1,4 @@
+import authFilter from "../../filter/authFilter.js"
 import { responseError, responseOk } from "../../utils/responseUtils.js"
 import AuthModule from "./authModule.js"
 import AuthService from "./authService.js"
@@ -43,7 +44,7 @@ export default class AuthController {
      * @param {AuthService} authService 
      */
     register(app, authService) {
-        app.post('/auth/register', 
+        app.post('/auth/register',
         /** 
          * @param {import("express").Request} req 
          * @param {import("express").Response} res 

@@ -1,6 +1,6 @@
 import { responseError } from "../utils/responseUtils.js";
 
-export const errorFilter = (err, req, res, next) => {
+export default function errorFilter(err, req, res, next) {
     const errStatus = err.statusCode || 500;
     let errMsg = ''
     try {
