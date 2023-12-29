@@ -1,15 +1,21 @@
 import express from 'express'
 import * as dotEnv from 'dotenv'
+import bodyParser from 'body-parser'
+
+import AuthModule from './module/auth/authModule.js';
+import { ErrorHandler } from './handler/errorHandler.js';
 
 dotEnv.config();
 
 const app = express();
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 const port = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-    res.send(`Hello World! ${JSON.stringify(process.env)}`)
-})
+new AuthModule(app).initModule()
+
+app.use(ErrorHandler)
 
 app.listen(port, "0.0.0.0", (error) => {
 	if (error) {
