@@ -1,7 +1,7 @@
 import { fakerID_ID as faker } from '@faker-js/faker';
-import { Category } from "../model/category.js"
-import { ProductMeta } from '../model/productMeta.js';
-import { Product } from '../model/product.js';
+import { Category } from "../../entity/category.js"
+import { ProductMeta } from '../../entity/productMeta.js';
+import { Product } from '../../entity/product.js';
 
 function createRandomProductMeta() {
   return {
