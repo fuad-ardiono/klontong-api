@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import { getDbConnection } from "../db/connection.js";
+import { getDbConnection } from "../config/db/connection.js";
 
 
 const orm = getDbConnection()
