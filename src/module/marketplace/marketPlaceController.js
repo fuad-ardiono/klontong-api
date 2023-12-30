@@ -16,7 +16,6 @@ export default class MarketPlaceController {
      * @param {MarketPlaceService} marketPlaceService 
     */
     detail(app, marketPlaceService) {
-
         app.get('/marketplace/:productId', 
         /** 
          * @param {import("express").Request} req 
