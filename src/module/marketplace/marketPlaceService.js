@@ -40,6 +40,11 @@ export default class MarketPlaceService {
             }
         }
 
+        paramQuerySQL.include = [
+            { model: ProductMeta, as: 'product_meta' },
+            { model: Category, as: 'category' }
+        ]
+
         const data = await Product.findAndCountAll(paramQuerySQL);
         const totalPage = Math.ceil(data.count / pageSize)
 
