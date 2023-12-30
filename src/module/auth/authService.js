@@ -1,4 +1,3 @@
-import { getDbConnection } from "../../config/db/connection.js";
 import { AuthUser } from "../../entity/authUser.js";
 
 import Joi from 'joi'
@@ -8,10 +7,6 @@ import * as dotEnv from 'dotenv'
 dotEnv.config()
 
 export default class AuthService {
-    constructor() {
-        this.orm = getDbConnection()
-    }
-
     /**
      * 
      * @param {Object} requestJson 
