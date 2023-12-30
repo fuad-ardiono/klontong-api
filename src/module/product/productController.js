@@ -1,5 +1,6 @@
 import { responseError, responseOk } from "../../utils/responseUtils.js"
 import ProductService from "./productService.js"
+import authFilter from "../../filter/authFilter.js"
 
 export default class ProductController {
     /** 
@@ -15,6 +16,7 @@ export default class ProductController {
     */
     create(app, productService) {
         app.post('/product', 
+        authFilter,
         /** 
          * @param {import("express").Request} req 
          * @param {import("express").Response} res 
