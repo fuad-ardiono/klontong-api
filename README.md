@@ -35,3 +35,7 @@ docker-compose down
 5. Sequalize orm
 6. Docker
 7. PostgreSQL
+
+## API Client Test
+- Postman
+    - Klontong API.postman_collection.json
