@@ -88,7 +88,6 @@ export default class AuthService {
         const saltRounds = 10
         const hashedPassword = await bcrypt.hash(requestJson.password, saltRounds)
 
-
         const authUser = await AuthUser.create({
             email: requestJson.email,
             password: hashedPassword,
