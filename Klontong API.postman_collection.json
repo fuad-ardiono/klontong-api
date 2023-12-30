@@ -68,10 +68,16 @@
 			"name": "Create Product",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiIxMDEiLCJ1c2VyTmFtZSI6IkphZ2FyYWdhLkhlcnpvZzk0IiwiZW1haWwiOiJqb2huZG9lQGtsb250b25nLmNvIiwiaWF0IjoxNzAzOTc1MzI2LCJpc3MiOiJrbG9udG9uZ19hcGkiLCJhdWQiOiJhdXRoX3VzZXIiLCJleHAiOjE3MDQwMDQxMjZ9.Tp_p-EWVIW9xVqcdw-xggMuyZoGUXmHQF0_GcbJ6R5E",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"Ayam Gepuk Pak Gembus\",\n    \"description\": \"Ayam Gepuk dengan sambal pedas\",\n    \"category_id\": 1,\n    \"price\": 18000,\n    \"meta\": {\n        \"width\": 30,\n        \"height\": 30,\n        \"weight\": 100,\n        \"length\": 15,\n        \"image\": \"/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/wAALCAABAAEBAREA/8QAFAABAAAAAAAAAAAAAAAAAAAACf/EABQQAQAAAAAAAAAAAAAAAAAAAAD/2gAIAQEAAD8AKp//2Q==\"\n    }\n}",
+					"raw": "{\n    \"name\": \"Ayam Gepuk Pak Gembus\",\n    \"description\": \"Ayam Gepuk dengan sambal pedas\",\n    \"category_id\": 1,\n    \"price\": \"18000\",\n    \"meta\": {\n        \"width\": \"30\",\n        \"height\": \"30\",\n        \"weight\": \"100\",\n        \"length\": \"15\",\n        \"image\": \"iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAIAAADTED8xAAADMElEQVR4nOzVwQnAIBQFQYXff81RUkQCOyDj1YOPnbXWPmeTRef+/3O/OyBjzh3CD95BfqICMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMO0TAAD//2Anhf4QtqobAAAAAElFTkSuQmCC\"\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -124,7 +130,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/marketplace?pageSize=2&page=1&name=Soap",
+					"raw": "http://localhost:3000/marketplace?pageSize=20&page=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -136,7 +142,7 @@
 					"query": [
 						{
 							"key": "pageSize",
-							"value": "2"
+							"value": "20"
 						},
 						{
 							"key": "page",
@@ -144,7 +150,8 @@
 						},
 						{
 							"key": "name",
-							"value": "Soap"
+							"value": "Soap",
+							"disabled": true
 						}
 					]
 				}
