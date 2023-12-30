@@ -1,15 +1,10 @@
 import { Op } from "sequelize";
-import { getDbConnection } from "../../config/db/connection.js";
 import { Category } from "../../entity/category.js";
 
 import { Product } from "../../entity/product.js"
 import { ProductMeta } from "../../entity/productMeta.js";
 
 export default class MarketPlaceService {
-    constructor() {
-        this.orm = getDbConnection()
-    }
-
     /**
      * 
      * @param {number} pageSize 
