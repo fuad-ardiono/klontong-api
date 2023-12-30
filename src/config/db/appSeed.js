@@ -2,6 +2,9 @@ import { fakerID_ID as faker } from '@faker-js/faker';
 import { Category } from "../../entity/category.js"
 import { ProductMeta } from '../../entity/productMeta.js';
 import { Product } from '../../entity/product.js';
+import { AuthUser } from '../../entity/authUser.js';
+
+import bcrypt from 'bcrypt'
 
 function createRandomProductMeta() {
   return {
@@ -19,6 +22,18 @@ function createRandomProduct() {
     name: faker.commerce.productName(),
     description: faker.commerce.productDescription(),
     category_id: faker.number.bigInt({ min: 1, max: 5 })
+  }
+}
+
+function createRandomAuthUser() {
+  const saltRounds = 10
+  const hashedPassword = bcrypt.hashSync('JohnDoe', saltRounds)
+
+  return {
+    email: faker.internet.email(),
+    username: faker.internet.userName(),
+    name: faker.person.fullName(),
+    password: hashedPassword
   }
 }
 
@@ -56,9 +71,17 @@ async function runSeed() {
     productMeta.forEach((obj, index) => {
       listProduct[index].product_meta_id = obj.dataValues.product_meta_id
     })
-    const product = await Product.bulkCreate(listProduct)
+    await Product.bulkCreate(listProduct)
 
-    console.log(product)
+    const listUser = faker.helpers.multiple(createRandomAuthUser, {
+      count: 100
+    })
+    await AuthUser.bulkCreate(listUser, { returning: true })
+
+    const userExpected = createRandomAuthUser()
+    userExpected.email = 'johndoe@klontong.co'
+    await AuthUser.create(userExpected)
+
     console.log('Success seeding data');
   } catch (error) {
     console.error('Failed seeding data:', error);
