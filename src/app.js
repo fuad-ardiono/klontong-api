@@ -20,7 +20,7 @@ const port = process.env.PORT || 3000;
 new AuthModule(app).initModule()
 new MarketPlaceModule(app).initModule()
 
-app.use(errorFilter)
+// app.use(errorFilter)
 
 app.listen(port, "0.0.0.0", (error) => {
 	if (error) {

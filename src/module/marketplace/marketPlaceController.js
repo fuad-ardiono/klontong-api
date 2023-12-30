@@ -46,7 +46,7 @@ export default class MarketPlaceController {
         */
         async (req, res, next) => {
             try {
-                const list = await marketPlaceService.list()
+                const list = await marketPlaceService.list(req.query.pageSize, req.query.page, req.query.name)
 
                 if (list[0] == 404) {
                     return responseError(res, list[1], null)
