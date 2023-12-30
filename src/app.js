@@ -1,9 +1,9 @@
 import express from 'express'
 import * as dotEnv from 'dotenv'
 import bodyParser from 'body-parser'
+import cors from 'cors'
 
 import errorFilter from './filter/errorFilter.js';
-import corsHeaderFilter from './filter/corsHeaderFilter.js';
 
 import AuthModule from './module/auth/authModule.js';
 import MarketPlaceModule from './module/marketplace/marketPlaceModule.js';
@@ -16,7 +16,7 @@ const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(corsHeaderFilter);
+app.use(cors());
 
 app.use('/storage', express.static('storage'))
 
