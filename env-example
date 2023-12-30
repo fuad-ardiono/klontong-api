@@ -1,0 +1,5 @@
+PORT=3000
+
+DB_URI=postgres://postgres:password@db:5432/klontong_db
+
+AUTH_JWT_SECRET=018cb7bf14b470d8bc5faf3b836a4076
