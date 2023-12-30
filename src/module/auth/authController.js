@@ -1,4 +1,3 @@
-import authFilter from "../../filter/authFilter.js"
 import { responseError, responseOk } from "../../utils/responseUtils.js"
 import AuthModule from "./authModule.js"
 import AuthService from "./authService.js"

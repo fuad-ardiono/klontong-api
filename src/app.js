@@ -6,6 +6,7 @@ import errorFilter from './filter/errorFilter.js';
 import corsHeaderFilter from './filter/corsHeaderFilter.js';
 
 import AuthModule from './module/auth/authModule.js';
+import MarketPlaceModule from './module/marketplace/marketPlaceModule.js';
 
 dotEnv.config();
 
@@ -17,6 +18,7 @@ app.use(corsHeaderFilter);
 const port = process.env.PORT || 3000;
 
 new AuthModule(app).initModule()
+new MarketPlaceModule(app).initModule()
 
 app.use(errorFilter)
 
